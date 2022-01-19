@@ -1,0 +1,40 @@
+
+<div class ="container">
+  <div class="row row-cols-1 row-cols-md-5 g-4">
+    <div  *ngFor="let car of cars" class="col">
+      <div class="card h-100">
+        <img src={{car.imageUrl}} class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{car.description}}</h5>
+          <p class="card-text">{{car.dailyPrice | currency:'TRY'}}</p>
+          <button class="btn btn-primary" style="margin-right: 2%;" >Detay Gör</button>
+          <button class="btn btn-secondary">Kirala</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<!-- <div *ngFor="let car of cars" class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Card title</h5>
+      <p class="card-text">{{car.description}}</p>
+      <a href="#" class="btn btn-primary">Go somewhere</a>
+    </div>
+  </div> -->
+
+<!-- <ul>
+    <li *ngFor="let car of cars">
+        {{car.description}}
+    </li>
+
+</ul> -->
+
+
+
