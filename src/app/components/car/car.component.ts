@@ -1,5 +1,5 @@
-import { CarService } from './../../services/car.service';
-import { CarListModel } from './../../models/carListModel';
+import { CarService } from '../../services/carServices/car.service';
+import { CarListModel } from '../../models/carModels/carListModel';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -31,5 +31,10 @@ export class CarComponent implements OnInit {
     })
   }
 
+
+  // routeToCarDetail(carId:number):void{
+  //   let url="/car-detail/"+carId
+  //   this.activatedRoute.navigateByUrl(url);
+  // }
 
 }

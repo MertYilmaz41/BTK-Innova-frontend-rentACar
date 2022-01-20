@@ -1,6 +1,6 @@
-import { BrandListModel } from './../../models/brandListModel';
-import { BrandService } from './../../services/brand.service';
+import { BrandService } from '../../services/brandServices/brand.service';
 import { Component, OnInit } from '@angular/core';
+import { BrandListModel } from 'src/app/models/brandModels/brandListModel';
 
 @Component({
   selector: 'app-brand',
@@ -24,6 +24,8 @@ export class BrandComponent implements OnInit {
       this.brands = response.data;
       this.dataLoaded = true;
     })
+
+
 
   }
 

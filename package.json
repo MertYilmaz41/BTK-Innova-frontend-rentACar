@@ -23,6 +23,7 @@
     "font": "^0.0.4",
     "install": "^0.13.0",
     "jquery": "^3.6.0",
+    "ngx-toastr": "^13.2.1",
     "primeicons": "^5.0.0",
     "primeng": "^13.0.4",
     "rxjs": "~7.4.0",

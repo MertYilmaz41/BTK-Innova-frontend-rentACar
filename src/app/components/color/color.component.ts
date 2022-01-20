@@ -1,5 +1,5 @@
-import { ColorService } from './../../services/color.service';
-import { ColorListModel } from './../../models/colorListModel';
+import { ColorService } from '../../services/colorServices/color.service';
+import { ColorListModel } from '../../models/colorModels/colorListModel';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

@@ -1,7 +1,8 @@
-import { CarListModel } from './../../models/carListModel';
+import { CarListModel } from '../../models/carModels/carListModel';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CarService } from 'src/app/services/car.service';
+import { CarService } from 'src/app/services/carServices/car.service';
+
 
 @Component({
   selector: 'app-car-detail',
@@ -21,12 +22,17 @@ export class CarDetailComponent implements OnInit {
   }
 
 
-  getById(carId:number):void
-  {
-    this.carService.getCarsById(carId).subscribe(response=>{
-      this.dataLoaded = false;
-      this.car = response.data;
-      this.dataLoaded = true;
-    })
+  getById(carId:number):void{ 
+    this.carService.getById(carId).subscribe(
+      response=>{
+        this.dataLoaded = false;
+        this.car = response.data;
+        this.dataLoaded = true;
+      }
+    )
   }
+
+
+
+
 }
