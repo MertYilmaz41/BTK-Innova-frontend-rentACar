@@ -1,6 +1,26 @@
-<ul>
-    <li *ngFor="let color of colors">
-        {{color.name}}
-    </li>
+<div class="btn-group" role="group" aria-label="Basic example">
+    <input class="form-control me-2" type="search" placeholder="Ara" aria-label="Search" [(ngModel)]="searchTerm" style="margin:3%;max-width: 300px;">
+    <a class="btn btn-primary" href="color/add"><i class="fas fa-plus"></i></a>
+  </div>
 
-</ul>
+  <table class="table  table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Renk</th>
+        <th scope="col">İşlem</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let color of colors">
+      <tr  > 
+        <td>{{color.id}}</td>
+        <td>{{color.name}}</td>        
+       <td>
+         <a class="btn btn-primary" href='{{"/color/update/"+color.id}}' ><i class="fas fa-pen"></i></a>
+         <button *ngIf="!dataLoaded" class="btn btn-danger" (click)="delete(color.id)"><i class="fas fa-trash-alt"></i></button>
+         <button *ngIf="dataLoaded" class="btn btn-danger"><div class="spinner-grow text-secondary spinner-grow-sm " role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div></button>
+      </td>        
+    </tbody>
+  </table>
