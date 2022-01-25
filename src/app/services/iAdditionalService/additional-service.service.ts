@@ -1,6 +1,6 @@
-import { UpdateAdditionalServiceItemRequest } from './../../models/additionalServiceItemModels/updateAdditionalServiceItemRequest';
+import { UpdateAdditionalServiceItemRequest } from '../../models/additionalServiceItemModels/updateAdditionalServiceItemRequest';
 import { ResponseModel } from 'src/app/models/responseModels/response.model';
-import { CreateAdditionalServiceItemRequest } from './../../models/additionalServiceItemModels/createAdditionalServiceItemRequest';
+import { CreateAdditionalServiceItemRequest } from '../../models/additionalServiceItemModels/createAdditionalServiceItemRequest';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';

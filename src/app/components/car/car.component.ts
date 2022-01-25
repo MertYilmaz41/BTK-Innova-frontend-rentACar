@@ -1,7 +1,7 @@
 import { CarService } from '../../services/carServices/car.service';
 import { CarListModel } from '../../models/carModels/carListModel';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 
@@ -15,7 +15,7 @@ export class CarComponent implements OnInit {
   cars:CarListModel[]=[]
   dataLoaded:boolean = false
   
-  constructor(private carService:CarService, private activatedRoute:ActivatedRoute ) { }
+  constructor(private carService:CarService, private router:Router ) { }
 
   ngOnInit(): void {
     this.getCars();
@@ -25,16 +25,16 @@ export class CarComponent implements OnInit {
 
   getCars(){
     this.carService.getCars().subscribe(response=>{
-      this.dataLoaded = false;
+  
       this.cars = response.data;
-      this.dataLoaded = true;
+      this.dataLoaded = false;
     })
   }
 
 
-  // routeToCarDetail(carId:number):void{
-  //   let url="/car-detail/"+carId
-  //   this.activatedRoute.navigateByUrl(url);
-  // }
+   routeToCarDetail(carId:number):void{
+     let url="/car-detail/"+carId
+     this.router.navigateByUrl(url);
+   }
 
 }

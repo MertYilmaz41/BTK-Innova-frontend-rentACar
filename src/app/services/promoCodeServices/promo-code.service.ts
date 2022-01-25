@@ -14,6 +14,11 @@ export class PromoCodeService {
   apiUrl:string="http://localhost:8080/api/promocodes/"
   constructor(private httpClient:HttpClient) { }
 
+  getByCode(code: string  ): Observable<SingleResponseModel<PromoCodeListModel>> {
+    return this.httpClient.get<SingleResponseModel<PromoCodeListModel>>(
+      this.apiUrl + 'getbycode/' + code
+    );}
+
   getAll(): Observable<ListResponseModel<PromoCodeListModel>>{ 
     return this.httpClient.get<ListResponseModel<PromoCodeListModel>>(this.apiUrl+"getall")
   }

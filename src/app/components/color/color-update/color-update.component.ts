@@ -1,49 +1,47 @@
-import { ActivatedRoute } from '@angular/router';
-import { CityListModel } from '../../../models/cityModels/cityListModel';
-import { UpdateCityRequest } from '../../../models/cityModels/updateCityRequests';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UpdateColorRequest } from './../../../models/colorModels/updateColorRequest';
 import { ToastrService } from 'ngx-toastr';
-import { CityService } from '../../../services/cityServices/city.service';
+import { ColorService } from './../../../services/colorServices/color.service';
+import { ColorListModel } from 'src/app/models/colorModels/colorListModel';
 import { Component, OnInit } from '@angular/core';
-import { ResponseModel } from 'src/app/models/responseModels/response.model';
-import { HttpErrorResponse } from '@angular/common/http';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { SingleResponseModel } from 'src/app/models/responseModels/singleResponseMode';
+import { HttpErrorResponse } from '@angular/common/http';
+import { ResponseModel } from 'src/app/models/responseModels/response.model';
 
 @Component({
-  selector: 'app-city-update',
-  templateUrl: './city-update.component.html',
-  styleUrls: ['./city-update.component.css']
+  selector: 'app-color-update',
+  templateUrl: './color-update.component.html',
+  styleUrls: ['./color-update.component.css']
 })
-export class CityUpdateComponent implements OnInit {
+export class ColorUpdateComponent implements OnInit {
   loading:boolean = false;
-  updateCity:CityListModel;
-  cityUpdateForm:FormGroup;
-
+  updateColor:ColorListModel;
+  colorUpdateForm:FormGroup;
   constructor(
-    private cityService:CityService,
+    private colorService:ColorService,
     private toastrService:ToastrService,
     private formBuilder:FormBuilder,
     private activatedRoute:ActivatedRoute
-    ) 
-    { }
+  ) { }
 
   ngOnInit(): void {
-   
   }
 
+
   createCityUpdateForm(){
-    this.cityUpdateForm = this.formBuilder.group({
-      cityName:["",Validators.required]
+    this.colorUpdateForm = this.formBuilder.group({
+      colorName:["",Validators.required]
     })
   }
 
   getById(id:number){
-    this.cityService.getCitiesById(id).subscribe(
-      (response: SingleResponseModel<CityListModel>) => {
+    this.colorService.getById(id).subscribe(
+      (response: SingleResponseModel<ColorListModel>) => {
         if (response.success) {   
-          this.updateCity=response.data;
-          this.cityUpdateForm.patchValue({
-            cityName:response.data.name,   
+          this.updateColor=response.data;
+          this.colorUpdateForm.patchValue({
+            colorName:response.data.name,   
           });
           this.toastrService.success(response.message,"Başarılı");
         } else {     
@@ -56,17 +54,16 @@ export class CityUpdateComponent implements OnInit {
       }
     )
   }
-  
 
   update(){
     this.loading = true;
-    let cityModel:UpdateCityRequest = Object.assign({},this.cityUpdateForm.value);
-    cityModel.id = this.updateCity.id;
-    this.cityService.update(cityModel).subscribe(
+    let updateColor:UpdateColorRequest = Object.assign({},this.colorUpdateForm.value);
+    updateColor.id = this.updateColor.id;
+    this.colorService.update(updateColor).subscribe(
       (response: ResponseModel) => {
         if (response.success) {               
           this.loading = false;
-          this.cityUpdateForm.markAsUntouched();
+          this.colorUpdateForm.markAsUntouched();
           this.toastrService.success(response.message,"Başarılı");
         } else {     
           this.toastrService.warning(response.message,"Başarısız");
@@ -79,6 +76,5 @@ export class CityUpdateComponent implements OnInit {
       }
     )
   }
-
 
 }

@@ -1,4 +1,4 @@
 export interface UpdateBrandRequest{
     id:number;
-    name:String
+    brandName:String
 }

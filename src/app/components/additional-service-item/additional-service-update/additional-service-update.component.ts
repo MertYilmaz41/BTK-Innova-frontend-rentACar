@@ -1,6 +1,6 @@
 import { UpdateAdditionalServiceItemRequest } from './../../../models/additionalServiceItemModels/updateAdditionalServiceItemRequest';
 import { ToastrService } from 'ngx-toastr';
-import { AdditionalServiceService } from './../../../services/iAdditionalService/additional-service.service';
+import { AdditionalServiceService } from '../../../services/iAdditionalService/additional-service.service';
 import { Component, OnInit } from '@angular/core';
 import { AdditionalServiceItemListModel } from 'src/app/models/additionalServiceItemModels/additionalServiceItemListModel';
 import { FormControl, FormGroup, Validators } from '@angular/forms';

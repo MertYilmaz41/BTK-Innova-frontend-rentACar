@@ -1,7 +1,7 @@
 export interface CreateCustomerCardDetailRequest{
     cardNo:string
     year:string
-    month:string
+    day:string
     cvv:string
     customerId:string
 }

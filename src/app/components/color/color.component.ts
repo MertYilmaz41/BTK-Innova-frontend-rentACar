@@ -3,6 +3,7 @@ import { ToastrService } from 'ngx-toastr';
 import { ColorService } from '../../services/colorServices/color.service';
 import { ColorListModel } from '../../models/colorModels/colorListModel';
 import { Component, OnInit } from '@angular/core';
+import { ListResponseModel } from 'src/app/models/responseModels/listReponseModel';
 
 @Component({
   selector: 'app-color',
@@ -11,36 +12,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ColorComponent implements OnInit {
 
-  constructor(private colorService:ColorService, private toastrService:ToastrService) { }
+  constructor(
+    private colorService:ColorService,
+     private toastrService:ToastrService
+     )
+    { }
   colors:ColorListModel[]=[];
   dataLoaded:boolean = false;
   deleteLoading:boolean = false;
-  searchTerm:string='';
+  
   ngOnInit(): void {
     this.getColors();
   }
 
   getColors(){
-    this.dataLoaded = true
-    this.colorService.getColors().subscribe(response=>{
-      if(response.success)
-      {
-        this.colors = response.data;
-        this.toastrService.success(response.message,"Başarılı")
-        this.dataLoaded = true;
-      }
-      else
-      {
-        this.toastrService.warning(response.message,"Başarısız")
+    this.dataLoaded = true;   
+    this.colorService.getColors().subscribe(
+      (response: ListResponseModel<ColorListModel>) => {
+        if (response.success) {           
+          this.dataLoaded = false;
+          this.colors=response.data;
+          this.toastrService.success(response.message,"Başarılı");
+        } else {     
+          this.toastrService.warning(response.message,"Başarısız");
+          this.dataLoaded = false;
+        }
+      },
+      (errorResponse: HttpErrorResponse) => {       
+        this.toastrService.error(errorResponse.message,"Başarısız");
         this.dataLoaded = false;
       }
-    },(errorResponse:HttpErrorResponse) =>{
-      this.toastrService.error(errorResponse.message,"Başarısız")
-      this.dataLoaded = false;
-    }
-
     )
   }
+
 
   delete(id:number){
     this.deleteLoading = true;

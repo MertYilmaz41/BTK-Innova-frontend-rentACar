@@ -14,7 +14,12 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class BrandAddComponent implements OnInit {
   loading:boolean=false;
   brandAddForm: FormGroup;
-  constructor(private formBuilder:FormBuilder , private brandService:BrandService, private toastrService:ToastrService) { }
+  constructor(
+    private formBuilder:FormBuilder , 
+    private brandService:BrandService, 
+    private toastrService:ToastrService
+    )
+     { }
 
   ngOnInit(): void {
     this.createBrandAddForm();

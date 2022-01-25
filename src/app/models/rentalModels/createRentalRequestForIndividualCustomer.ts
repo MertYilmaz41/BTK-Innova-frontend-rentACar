@@ -1,6 +1,7 @@
 export interface CreateRentalRequestForIndividualCustomer{
 	  rentDate:Date;
-	  customerId:number;
+	  returnDate:Date;
+	  individualCustomerId:number;
 	  carId:number;
 	  promoCodeId:number;
 }

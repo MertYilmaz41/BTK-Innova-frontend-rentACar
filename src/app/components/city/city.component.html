@@ -16,7 +16,7 @@
     <tbody *ngFor="let city of cities">
       <tr  > 
         <td>{{city.id}}</td>
-        <td>{{city.cityName}}</td>        
+        <td>{{city.name}}</td>        
        <td>
          <a class="btn btn-primary" href='{{"/city/update/"+city.id}}' ><i class="fas fa-pen"></i></a>
          <button *ngIf="!deleteLoading" class="btn btn-danger" (click)="delete(city.id)"><i class="fas fa-trash-alt"></i></button>

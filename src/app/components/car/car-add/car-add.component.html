@@ -16,7 +16,7 @@
   
                     <label for="brand">Marka</label>
                     <select class="form-select mb-3" aria-label="Brand" formControlName="brandId" >                
-                      <option *ngFor="let brand of brands" value="{{brand.id}}">{{brand.brandName}}</option>                 
+                      <option *ngFor="let brand of brands" value="{{brand.id}}">{{brand.name}}</option>                 
                     </select>
   
                     <label for="color">Renk</label>
@@ -95,7 +95,7 @@
           
           <label for="city">Arabanın Bulunduğu Şehir</label>
           <select class="form-select mb-3" aria-label="city" formControlName="cityId" >                  
-            <option *ngFor="let city of cities" value="{{city.id}}">{{city.cityName}}</option>                 
+            <option *ngFor="let city of cities" value="{{city.id}}">{{city.name}}</option>                 
           </select>
   
         </form>

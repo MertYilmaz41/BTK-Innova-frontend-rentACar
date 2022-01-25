@@ -1,4 +1,5 @@
 import { CustomerCardDetailListModel } from './../../models/customerCardDetailModels/customerCardDetailListModel';
+
 import { ToastrService } from 'ngx-toastr';
 import { Component, OnInit } from '@angular/core';
 import { CustomerCardDetailService } from 'src/app/services/customerCardDetailServices/customer-card-detail.service';
@@ -44,21 +45,21 @@ export class CustomerCardDetailComponent implements OnInit {
 
 
 
-  // delete (id:number){
-  //   this.customerCardDetailService.delete(id).subscribe(response =>{
-  //     if(response.success){     
-  //       this.findAllCustomerCardDetailsByCustomerId();
-  //       this.toastrService.success(response.message,"Başarılı");
+   delete (id:number){
+     this.customerCardDetailService.delete(id).subscribe(response =>{
+       if(response.success){     
+         this.customerCardDetailService.getById(id);
+         this.toastrService.success(response.message,"Başarılı");
         
-  //     }else{
-  //       this.toastrService.warning(response.message,"Başarısız");
+      }else{
+         this.toastrService.warning(response.message,"Başarısız");
      
-  //     }
-  //   }, (errorResponse: HttpErrorResponse) => {       
-  //     this.toastrService.error(errorResponse.message,"Başarısız");
-  //   }
-  //   )
+       }
+     }, (errorResponse: HttpErrorResponse) => {       
+       this.toastrService.error(errorResponse.message,"Başarısız");
+     }
+     )
 
-  // }
+   }
 
 }

@@ -28,6 +28,10 @@ import { PaymentAddComponent } from './components/payment/payment-add/payment-ad
 import { PaymentUpdateComponent } from './components/payment/payment-update/payment-update.component';
 import { AdditionalServiceAddComponent } from './components/additional-service-item/additional-service-add/additional-service-add.component';
 import { AdditionalServiceUpdateComponent } from './components/additional-service-item/additional-service-update/additional-service-update.component';
+import { BrandUpdateComponent } from './components/brand/brand-update/brand-update.component';
+import { CarUpdateComponent } from './components/car/car-update/car-update.component';
+import { CityAddComponent } from './components/city/city-add/city-add.component';
+import { ColorUpdateComponent } from './components/color/color-update/color-update.component';
 
 
 @NgModule({
@@ -55,6 +59,10 @@ import { AdditionalServiceUpdateComponent } from './components/additional-servic
     PaymentUpdateComponent,
     AdditionalServiceAddComponent,
     AdditionalServiceUpdateComponent,
+    BrandUpdateComponent,
+    CarUpdateComponent,
+    CityAddComponent,
+    ColorUpdateComponent,
   ],
   imports: [
     BrowserModule,

@@ -15,25 +15,31 @@ export class CarDetailComponent implements OnInit {
   carId:number
   car:CarListModel
   dataLoaded = false;
-  constructor( private activatedRoute:ActivatedRoute, private carService:CarService,) { }
+  constructor( 
+    private activatedRoute:ActivatedRoute,
+    private carService:CarService,
+    private router:Router,
+     ) 
+     { }
  
   ngOnInit(): void {
-    //this.carId = parseInt(this.activatedRoute.snapshot.paramMap.get('carId')); 
-    this.getById(this.carId);
+    this.getById();
+    
   }
 
-
-  getById(carId:number):void{ 
-    this.carService.getById(carId).subscribe(
-      (response:SingleResponseModel<CarListModel>)=>{
-        this.dataLoaded = false;
-        this.car = response.data;
-        this.dataLoaded = true;
+  getById(){
+    this.activatedRoute.params.subscribe(params => {
+      if (params['id']) {
+        this.carService.getById(params['id']).subscribe(response => {
+          this.car = response.data
+        })
       }
-    )
+    })
   }
 
 
 
+ 
+ 
 
 }

@@ -12,7 +12,7 @@ import { ListResponseModel } from 'src/app/models/responseModels/listReponseMode
   providedIn: 'root'
 })
 export class CustomerCardDetailService {
-  apiUrl:string="http://localhost:8080/api/customercardetails/"
+  apiUrl:string="http://localhost:8080/api/customercarddetails/"
   constructor(private httpClient:HttpClient) { }
 
   getAll(): Observable<ListResponseModel<CustomerCardDetailListModel>> {

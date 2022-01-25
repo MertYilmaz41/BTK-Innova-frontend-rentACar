@@ -1,1 +1,28 @@
-<p>customer-card-detail works!</p>
+<div class="container" style=" margin-top: 3%;min-height: 400px;">
+    <table class="table  table-striped" *ngIf="customerCardDetails.length>0">
+      <thead>
+        <tr>
+          <th scope="col">Kart no</th>
+          <th scope="col">Ay</th>
+          <th scope="col">Yıl</th>
+          <th scope="col">cvv</th>
+          <th scope="col">İşlem</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let customerCardDetail of customerCardDetails">
+        <tr>
+          <td>{{customerCardDetail.cardNo}}</td>
+          <td>{{customerCardDetail.day}}</td>
+          <td>{{customerCardDetail.year}}</td>
+          <td>{{customerCardDetail.cvv}}</td>
+          <td><button class="btn btn-danger" (click)="delete(customerCardDetail.id)"><i class="far fa-trash-alt"></i></button></td>
+          <td></td>
+  
+        </tr>
+      </tbody>
+    </table>
+    <!-- alert -->
+    <div class="alert alert-danger" role="alert" *ngIf="customerCardDetails.length<1">
+      Kayıtlı Kart Bulunamadı
+    </div>
+  </div>

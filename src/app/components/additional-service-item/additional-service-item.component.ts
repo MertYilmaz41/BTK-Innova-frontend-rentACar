@@ -1,5 +1,5 @@
 import { ToastrService } from 'ngx-toastr';
-import { AdditionalServiceService } from './../../services/iAdditionalService/additional-service.service';
+import { AdditionalServiceService } from '../../services/iAdditionalService/additional-service.service';
 import { Component, OnInit } from '@angular/core';
 import { AdditionalServiceItemListModel } from 'src/app/models/additionalServiceItemModels/additionalServiceItemListModel';
 import { ListResponseModel } from 'src/app/models/responseModels/listReponseModel';
