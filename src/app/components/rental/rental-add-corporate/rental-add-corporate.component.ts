@@ -142,44 +142,43 @@ export class RentalAddCorporateComponent implements OnInit {
   }
     
 
-
-  // addRental() {
-  //   this.addLoading = true;
-  //   let createRentalModel: CreateRentalRequestForCorporateCustomer = Object.assign(
-  //     {},
-  //     this.rentalAddForm.value
-  //   );
-  //   createRentalModel.corporateCustomerId = this.customerId;
-  //   if (this.promoCode == null) {
-  //     createRentalModel.promoCodeId = 7;
-  //   } else {
-  //     createRentalModel.promoCodeId = this.promoCode.id;
-  //   }
-  //   createRentalModel.carId = this.carId;
-  //   this.rentalService.addForCorporateCustomer(createRentalModel).subscribe(
-  //     (response: SingleResponseModel<RentalAddResponseModel>) => {
-  //       if (response.success) {
-  //         this.returnDate = this.rentalAddForm.get('returnDate').value;
-  //         this.addLoading = false;
-  //         let model: RentalAddResponseModel = response.data;
-  //         this.getById(response.data.id);
-  //         this.carId = response.data.carId;
-  //         //   this.clearRentalAddForm();
-  //         //   this.rentalAddForm.markAsUntouched();
-  //         this.status = 'service';
-  //   //      this.toastrService.success(response.message, 'Başarılı');
-  //       } else {
-  //         this.toastrService.warning(response.message, 'Başarısız');
-  //         this.addLoading = false;
-  //       }
-  //     },
-  //     (errorResponse: HttpErrorResponse) => {
-  //       this.toastrService.error(errorResponse.message, 'Başarısız');
-  //       this.addLoading = false;
-  //     }
-  //   );
-  //   this.addLoading = false;
-  // }
+  addRental() {
+      this.addLoading = true;
+      let createRentalModel: CreateRentalRequestForCorporateCustomer = Object.assign(
+        {},
+        this.rentalAddForm.value
+      );
+      createRentalModel.corporateCustomerId = this.customerId;
+      if (this.promoCode == null) {
+        createRentalModel.promoCodeId = 7;
+      } else {
+        createRentalModel.promoCodeId = this.promoCode.id;
+      }
+         createRentalModel.carId = this.carId;
+        this.rentalService.addForCorporateCustomer(createRentalModel).subscribe(
+        (response: SingleResponseModel<RentalAddResponseModel>) => {
+          if (response.success) {
+            this.returnDate = this.rentalAddForm.get('returnDate').value;
+            this.addLoading = false;
+            let model: RentalAddResponseModel = response.data;
+          this.getById(response.data.id);
+            this.carId = response.data.carId;
+              this.clearRentalAddForm();
+               this.rentalAddForm.markAsUntouched();
+            this.status = 'service';
+            this.toastrService.success(response.message, 'Başarılı');
+          } else {
+            this.toastrService.warning(response.message, 'Başarısız');
+            this.addLoading = false;
+         }
+       },
+        (errorResponse: HttpErrorResponse) => {
+       this.toastrService.error(errorResponse.message, 'Başarısız');
+        this.addLoading = false;
+        }
+      );
+     this.addLoading = false;
+   }
 
 
 

@@ -1,3 +1,4 @@
+import { RentalAddCorporateComponent } from './components/rental/rental-add-corporate/rental-add-corporate.component';
 import { AdditionalServiceItemComponent } from './components/additional-service-item/additional-service-item.component';
 
 import { ColorUpdateComponent } from './components/color/color-update/color-update.component';
@@ -40,6 +41,7 @@ const routes: Routes = [
 
 
   { path: 'rentals', component: RentalComponent },
+  { path: 'rentals/add', component: RentalAddCorporateComponent },
 
 
   { path: 'brands', component: BrandComponent },
