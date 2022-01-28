@@ -1,5 +1,4 @@
 export interface CreateCarRequest{
-    carName:string
     brandId:number
     colorId:number
     dailyPrice:number
@@ -10,5 +9,4 @@ export interface CreateCarRequest{
     description:string
     minAge:number
     segmentId:number
-    cityId:number
 }

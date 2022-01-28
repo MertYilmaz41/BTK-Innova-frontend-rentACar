@@ -66,9 +66,8 @@ export class CarAddComponent implements OnInit {
 
 
   carAddForm = new FormGroup({
-    carName: new FormControl("",[Validators.required,Validators.minLength(2),Validators.maxLength(30)]),
     brandName: new FormControl("",[Validators.required]),
-    model: new FormControl("",[Validators.required,Validators.minLength(2),Validators.maxLength(60)]),
+    modelYear: new FormControl("",[Validators.required,Validators.minLength(2),Validators.maxLength(60)]),
     brandId: new FormControl("",[Validators.required,Validators.min(1)]),
     colorId: new FormControl("",[Validators.required]),
     dailyPrice: new FormControl("",[Validators.required]),
@@ -78,7 +77,6 @@ export class CarAddComponent implements OnInit {
     description: new FormControl("",[Validators.required,Validators.minLength(0),Validators.maxLength(250)]),
     minAge: new FormControl("",[Validators.required,Validators.min(18),Validators.min(50)]),
     segmentId: new FormControl("",[Validators.required,Validators.min(1)]),
-    cityId: new FormControl("",[Validators.required,Validators.min(1)]),
   })
 
 

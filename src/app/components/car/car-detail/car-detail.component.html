@@ -1,32 +1,38 @@
-<div class="container" style="margin-top:3%"  *ngIf="!dataLoaded">
-  <div class="card mb-3" style="max-width: 540px;">
-    <div class="row g-0">
-      <div class="col-md-4">
-        <img src={{car.imageUrl}} class="img-fluid rounded-start" alt="car">
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <div class="card-header">
-            {{car.brandName}} {{car.carName}}
-          </div>
-          <h5 class="card-title">{{car.description}}</h5>
-        </div>
+<!--car detail component-->
+<div class="container" style="margin-top:3%; display: flex;"  *ngIf="!dataLoaded">
   
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Renk: {{car.colorName}} </li>
-        <li class="list-group-item">Model: {{car.model}}</li>
-        <li class="list-group-item">Günlük Fiyat: {{car.dailyPrice+" TRY"}} </li>
-        <li class="list-group-item">Minimum Kiralama Yaşı: {{car.minAge}} </li>
-        <li class="list-group-item">Minimum Findex Skoru: {{car.findexScore}} </li>
-      </ul>
+  <img src={{car.imageUrl}} class="img-fluid rounded-start" alt="car" 
+  style="max-width: 540px; max-height:300px;"
+  >
+
+<div class="card " style="max-width: 540px; margin-left: 1%; ">
+  
+  <div class="row g-0">
+   
+    <div class="col-md-8">
+      <div class="card-body" >
+        <div class="card-header" style="font-size: 20px; background-color: rgba(228, 166, 33, 0.849); font-style: oblique;">
+          {{car.brandName}} 
+        </div>
+        <h5 class="card-title" >{{car.description}}</h5>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item ">Renk: {{car.colorName}} </li>
+          <li class="list-group-item">Model: {{car.modelYear}}</li>
+          <li class="list-group-item">Günlük Fiyat: {{car.dailyPrice+" TRY"}} </li>
+          <li class="list-group-item">Minimum Kiralama Yaşı: {{car.minAge}} </li>
+          <li class="list-group-item">Minimum Findex Skoru: {{car.findexScore}} </li>
+
+        </ul>
     </div>
+
   </div>
+</div>
+</div>
 </div>
 <!-- spinner -->
 <div class="container " *ngIf="dataLoaded" style="margin: 20%;">
-  <button class="btn btn-primary" type="button" disabled>
-    <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-    Araç Detayları Yükleniyor...
-  </button>
+<button class="btn btn-primary" type="button" disabled>
+  <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+  Araç Detayları Yükleniyor...
+</button>
 </div>

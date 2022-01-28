@@ -46,7 +46,7 @@ const routes: Routes = [
 
   { path: 'brands', component: BrandComponent },
   { path: 'brand/add', component: BrandAddComponent },
-  { path: 'brand/update', component: BrandUpdateComponent },
+  { path: 'brand/update/:id', component: BrandUpdateComponent },
 
   { path: 'customercarddetails', component: CustomerCardDetailComponent},
 

@@ -3,12 +3,12 @@
     <div *ngFor="let car of cars"  class="card text-white bg-dark mb-3" style="max-width: 22rem;margin:1%">
       <img  src="{{car?.imageUrl}}" class="card-img-top" alt="thumbnail" width="100" height="200">
       <div class="card-body">
-        <h5 class="card-title">{{car?.brandName}}  {{car?.carName}}</h5>
+        <h5 class="card-title">{{car?.brandName}} </h5>
         <p class="card-text">{{car?.description}}</p>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item list-group-item-info">Renk: {{car?.colorName}} </li>
-        <li class="list-group-item list-group-item-warning">Model: {{car?.model}}</li>
+        <li class="list-group-item list-group-item-warning">Model: {{car?.modelYear}}</li>
         <li class="list-group-item list-group-item-danger">Günlük Fiyat: {{car?.dailyPrice+" TRY"}} </li>
       </ul>
       <div class="card-body">
@@ -37,4 +37,3 @@
     </div>
   </div>
 </div>
-

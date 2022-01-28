@@ -12,7 +12,6 @@
           <th scope="col">Id</th>
           <th scope="col">Müşter Id</th>
           <th scope="col">Araba Id</th>
-          <th scope="col">Promosyon Kod Id</th>
           <th scope="col">Kiralama Tarihi</th>
           <th scope="col">Dönüş Tarihi</th>
           <th scope="col">Kiralama Kilometre</th>
@@ -24,7 +23,6 @@
           <td>{{rental.id}}</td>
           <td>{{rental.customerId}}</td>
           <td>{{rental.carId}}</td>
-          <td>{{rental.promoCodeId}}</td>
           <td>{{rental.rentDate}}</td>
           <td *ngIf="rental.returnDate!==null">{{rental.returnDate}}</td>
           <td *ngIf="rental.returnDate===null">devam ediyor</td>

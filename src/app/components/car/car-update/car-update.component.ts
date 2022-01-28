@@ -171,8 +171,7 @@ export class CarUpdateComponent implements OnInit {
         if (response.success) {
           this.carUpdate = response.data;
           this.carUpdateForm.patchValue({
-            model: response.data.model,
-            carName: response.data.carName,
+            modelYear: response.data.modelYear,
             brandId: response.data.brandId,
             colorId: response.data.colorId,
             dailyPrice: response.data.dailyPrice,
@@ -181,8 +180,7 @@ export class CarUpdateComponent implements OnInit {
             imageUrl: response.data.imageUrl,
             description: response.data.description,
             minAge: response.data.minAge,
-            segmentId: response.data.segmentId,
-            cityId: response.data.cityId,
+            segmentId: response.data.segmentId
           });
           this.toastrService.success(response.message, "Başarılı");
         } else {

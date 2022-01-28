@@ -1,10 +1,51 @@
+<div class="content">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header"><h5 class="title">Kiralama ekle</h5></div>
+            <div class="card-body">
+                <form [formGroup]="rentalAddForm">
+                    <div class="mb-3">
+                        <label for="rentDate">Kiralama Başlangıç Tarihi</label>
+                        <div class="form-group">
+                            <input type="date" 
+                            id="rentDate" 
+                            formControlName="rentDate" class="form-control" 
+                            placeholder="Kiralama Başlangıç Tarihi"/>
+                        </div>
+                    </div>
+  
+                      <div class="mb-3">
+                        <label for="corporateCustomerId">Şirket Müşteri Id</label>
+                        <div class="form-group">
+                          <input type="number" id="corporateCustomerId" formControlName="corporateCustomerId" class="form-control"
+                            placeholder="Şirket Müşteri Id" />
+                        </div>
+                      </div>
+  
+                      <div class="mb-3">
+                        <label for="carId">Araba Id</label>
+                        <div class="form-group">
+                          <input type="number" id="carId" formControlName="carId" class="form-control"
+                            placeholder="Araba Id" />
+                        </div>
+                      </div>
 
-  
-  
-  
-  
-   
-  
+                 
+            
+        </form>
+            </div>
+            <div class="card-footer">
+                <button *ngIf="!dataLoaded" class="btn btn-fill btn-primary" (click)="add()">Ekle</button>
+                <button *ngIf="dataLoaded" class="btn btn-primary" type="button" disabled>
+                  <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+                  Gönderiliyor...
+                </button>
+            </div>
+        </div>
+        
+    </div>
+    
+  </div>
   
   
 

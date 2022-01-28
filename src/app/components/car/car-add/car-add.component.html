@@ -4,15 +4,7 @@
             <div class="card-header"><h5 class="title">Araba ekle</h5></div>
             <div class="card-body">
                 <form [formGroup]="carAddForm">
-                    <div class="mb-3">
-                        <label for="carName">Araba İsmi</label>
-                        <div class="form-group">
-                            <input type="text" 
-                            id="carName" 
-                            formControlName="carName" class="form-control" 
-                            placeholder="Araba ismi"/>
-                        </div>
-                    </div>
+                   
   
                     <label for="brand">Marka</label>
                     <select class="form-select mb-3" aria-label="Brand" formControlName="brandId" >                
@@ -34,12 +26,12 @@
                       </div>
                   </div>
                   <div class="mb-3">
-                    <label for="model">Model Yılı</label>
+                    <label for="modelYear">Model Yılı</label>
                     <div class="form-group">
                         <input type="number" 
-                        id="model" 
-                        formControlName="model" class="form-control" 
-                        placeholder="Model"/>
+                        id="modelYear" 
+                        formControlName="modelYear" class="form-control" 
+                        placeholder="Model Yılı"/>
                     </div>
                 </div>
                 <div class="mb-3">
@@ -93,10 +85,6 @@
             <option *ngFor="let segment of segments" value="{{segment.id}}">{{segment.segmentName}}</option>                 
           </select>
           
-          <label for="city">Arabanın Bulunduğu Şehir</label>
-          <select class="form-select mb-3" aria-label="city" formControlName="cityId" >                  
-            <option *ngFor="let city of cities" value="{{city.id}}">{{city.name}}</option>                 
-          </select>
   
         </form>
             </div>
